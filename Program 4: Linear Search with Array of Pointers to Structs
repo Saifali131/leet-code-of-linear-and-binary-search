@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+struct Student {
+    int id;
+    string name;
+};
+
+int linearSearch(Student* arr[], int size, int key) {
+    for (int i = 0; i < size; i++) {
+        if (arr[i]->id == key) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+int main() {
+    Student* arr[3];
+    arr[0] = new Student{1, "John"};
+    arr[1] = new Student{2, "Jane"};
+    arr[2] = new Student{3, "Doe"};
+
+    int key = 2;
+    int result = linearSearch(arr, 3, key);
+    if (result != -1) {
+        cout << "Student found at index: " << result << " with name: " << arr[result]->name << endl;
+    } else {
+        cout << "Student not found." << endl;
+    }
+
+    for (int i = 0; i < 3; i++) {
+        delete arr[i]; // Free allocated memory
+    }
+    return 0;
+}
