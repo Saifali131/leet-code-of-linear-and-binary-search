@@ -1,0 +1,35 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+struct Employee {
+    int age;
+    string name;
+};
+
+bool compareByAge(const Employee& a, const Employee& b) {
+    return a.age < b.age;
+}
+
+int linearSearch(Employee arr[], int size, int key) {
+    for (int i = 0; i < size; i++) {
+        if (arr[i].age == key) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+int main() {
+    Employee arr[] = { {30, "Alice"}, {25, "Bob"}, {35, "Charlie"} };
+    int size = sizeof(arr) / sizeof(arr[0]);
+    sort(arr, arr + size, compareByAge); // Sort by age
+    int key = 25;
+    int result = linearSearch(arr, size, key);
+    if (result != -1) {
+        cout << "Employee found at index: " << result << " with name: " << arr[result].name << endl;
+    } else {
+        cout << "Employee not found." << endl;
+    }
+    return 0;
+}
