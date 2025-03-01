@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int linearSearch(char arr[], int size, char key) {
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == key) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+int countVowels(char arr[], int size) {
+    int count = 0;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == 'a' || arr[i] == 'e' || arr[i] == 'i' || arr[i] == 'o' || arr[i] == 'u' ||
+            arr[i] == 'A' || arr[i] == 'E' || arr[i] == 'I' || arr[i] == 'O' || arr[i] == 'U') {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main() {
+    char arr[] = {'a', 'b', 'c', 'e', 'i'};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    char key = 'e';
+    int result = linearSearch(arr, size, key);
+    if (result != -1) {
+        cout << "Character found at index: " << result << endl;
+    } else {
+        cout << "Character not found." << endl;
+    }
+    cout << "Total vowels in array: " << countVowels(arr, size) << endl;
+    return 0;
+}
