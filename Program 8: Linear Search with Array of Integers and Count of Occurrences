@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int linearSearch(int arr[], int size, int key, int& count) {
+    count = 0;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == key) {
+            count++;
+        }
+    }
+    return count > 0 ? 0 : -1; // Return 0 if found at least once
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 2, 4, 2};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int key = 2;
+    int count;
+    int result = linearSearch(arr, size, key, count);
+    if (result != -1) {
+        cout << "Element found with count: " << count << endl;
+    } else {
+        cout << "Element not found." << endl;
+    }
+    return 0;
+}
