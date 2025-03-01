@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+int linearSearch(float arr[], int size, float key) {
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == key) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+float calculateAverage(float arr[], int size) {
+    float sum = 0;
+    for (int i = 0; i < size; i++) {
+        sum += arr[i];
+    }
+    return sum / size;
+}
+
+int main() {
+    float arr[] = {1.5, 2.5, 3.5, 4.5};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    float key = 3.5;
+    int result = linearSearch(arr, size, key);
+    if (result != -1) {
+        cout << "Element found at index: " << result << endl;
+    } else {
+        cout << "Element not found." << endl;
+    }
+    cout << "Average of array: " << calculateAverage(arr, size) << endl;
+    return 0;
+}
